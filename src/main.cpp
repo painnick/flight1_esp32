@@ -13,15 +13,14 @@
 #define BEACON_PIN 6
 
 // 각 스트로브의 주기와 켜진 시간 (밀리초)
-static const unsigned long BASE_PERIOD_MS = 1250;
 unsigned long STROBE1_PERIOD_MS = 1250; // 1.25초마다 반복
 unsigned long STROBE2_PERIOD_MS = 1300; // 1.4초마다 반복
-static const unsigned long STROBE_ON_DURATION_MS = 70; // 100ms 동안 켜짐
+static constexpr unsigned long STROBE_ON_DURATION_MS = 70; // 100ms 동안 켜짐
 static unsigned long lastStrobe1On = 300;
 static unsigned long lastStrobe2On = 0;
 
 unsigned long BEACON_PERIOD_MS = 1000; // 1초마다 반복
-static const unsigned long BEACON_ON_DURATION_MS = 70; // 100ms 동안 켜짐
+static constexpr unsigned long BEACON_ON_DURATION_MS = 70; // 100ms 동안 켜짐
 
 void setup() {
   ESP_LOGI(MAIN_TAG, "Setup...");
