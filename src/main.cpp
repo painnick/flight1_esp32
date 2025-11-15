@@ -12,12 +12,12 @@
 #define NAVI_PIN 4
 #define STROBE1_PIN 0
 #define STROBE2_PIN 1
-#define BEACON_PIN 3
+#define BEACON_PIN 10
 #define LOGO_PIN 5
 #define LANDING_PIN 6
 #define NOT_USED_PIN 7
 // 버튼 핀 번호
-#define BUTTON_PIN 10
+#define BUTTON_PIN 3
 
 // 각 스트로브의 주기와 켜진 시간 (밀리초)
 unsigned long STROBE1_PERIOD_MS = 1250; // 1.25초마다 반복
