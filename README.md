@@ -96,7 +96,6 @@ idf.py menuconfig
 ## 로깅
 
 - Develop 모드: INFO 레벨 로그 출력
-- 3초마다 현재 step 상태 로그 출력
 
 ## 파일 구조
 

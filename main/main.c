@@ -103,8 +103,6 @@ static void main_task(void *arg)
     int64_t last_button_event_us = 0;
     bool prev_button_state = true;  // 풀업이므로 유휴 상태 HIGH
 
-    int64_t last_log_us = 0;
-
     ESP_LOGI(TAG, "Start!");
 
     while (1) {
@@ -192,12 +190,6 @@ static void main_task(void *arg)
                 beacon_active = false;
                 gpio_set_level(BEACON_PIN, 0);
             }
-        }
-
-        // 3초마다 상태 로그
-        if (now_us - last_log_us > (3 * 1000 * 1000)) {
-            last_log_us = now_us;
-            ESP_LOGI(TAG, "Current Step : %d", step);
         }
 
         vTaskDelay(pdMS_TO_TICKS(5));  // 5ms 대기
