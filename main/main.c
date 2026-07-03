@@ -32,6 +32,10 @@ static const char *TAG = "Main";
 #define STROBE2_PERIOD_MIN_US  (1250 * 1000)
 #define STROBE2_PERIOD_MAX_US  (1300 * 1000)
 
+// 스트로브 시작 오프셋 (마이크로초)
+#define STROBE_START_OFFSET_MIN_US  (200 * 1000)
+#define STROBE_START_OFFSET_MAX_US  (500 * 1000)
+
 // 비컨 타이밍 (마이크로초)
 #define BEACON_PERIOD_US       (1000 * 1000)
 #define BEACON_ON_DURATION_US  (70 * 1000)
@@ -118,6 +122,11 @@ static void main_task(void *arg)
                     break;
                 case 1: // STROBE 1,2만 깜박
                     strobe_enable = true;
+                    {
+                        int64_t offset = esp_random() % (STROBE_START_OFFSET_MAX_US - STROBE_START_OFFSET_MIN_US + 1) + STROBE_START_OFFSET_MIN_US;
+                        last_strobe1_on = now_us - offset;
+                        last_strobe2_on = now_us;
+                    }
                     break;
                 case 2: // BEACON ON
                     beacon_enable = true;
